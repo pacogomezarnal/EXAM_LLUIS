@@ -1,4 +1,5 @@
-/imagenes/
 /lib/
 /models/
-/views/
+/vista/
+/controlador/
+/image/
