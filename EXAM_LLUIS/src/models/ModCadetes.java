@@ -10,6 +10,8 @@ import java.util.ArrayList;
 	public class ModCadetes {
 		
 		private final static String SELECT_cadete="select * from cadetes where id=";
+		private final static String SELECT_cadetes="select * from cadetes where equipo=";
+		private final static int SELECT_numEquipo=4;
 		
 		private final String ID = "id";
 		private final String NOM = "nombre";
@@ -48,6 +50,30 @@ import java.util.ArrayList;
 				e.printStackTrace();
 			}
 			return cade;
+		}
+		
+		public ArrayList<Cadete> consultaEquipos() {
+			ArrayList<Cadete> cadetes = new ArrayList<Cadete>();
+			String consulta = "select * from delincuentes";
+			try {
+				this.instruccion=this.conexion.createStatement();
+				//aremos nuestra consulta a la intruccion introduciendole nuestra select y lo almacenaremos en la variable resultset
+				this.result= this.instruccion.executeQuery(SELECT_cadetes+SELECT_numEquipo);
+				while (result.next()) {
+					int id = result.getInt(ID);
+					String nom = result.getString(NOM);
+					String ape = result.getString(APE);
+					int edad = result.getInt(EDAD);
+					String nac = result.getString(NAC);
+					int equi = result.getInt(EQUI);
+					
+					Cadete cade = new Cadete(id, nom, ape, edad,nac, equi);
+					cadetes.add(cade);
+				}
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
+			return cadetes;
 		}
 		
 		

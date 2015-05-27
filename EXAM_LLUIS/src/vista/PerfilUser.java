@@ -6,8 +6,12 @@ import javax.swing.ImageIcon;
 import javax.swing.JTextField;
 import javax.swing.JButton;
 
+import controlador.ConVistaPrin;
 import models.Cadete;
 import models.ModCadetes;
+
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
 
 public class PerfilUser extends JPanel {
 	private JTextField cajaNombre;
@@ -22,9 +26,11 @@ public class PerfilUser extends JPanel {
 	public PerfilUser() {
 		setLayout(null);
 		setName("perfil");
+		
 		modCad=new ModCadetes();
 		
 		cadet=modCad.consultacadete(11);
+		
 		JLabel lblFoto = new JLabel("");
 		lblFoto.setIcon(new ImageIcon(PerfilUser.class.getResource("/image/perfil.png")));
 		lblFoto.setBounds(10, 11, 96, 96);
@@ -86,6 +92,12 @@ public class PerfilUser extends JPanel {
 		cajaNacionalidad.setText(cadet.getNacionalidad());
 		
 		JButton btnSiguiente = new JButton("Siguiente >>");
+		btnSiguiente.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				ConVistaPrin controladora=ConVistaPrin.getInstance();
+				controladora.CambiaVistaPerfEqui();
+			}
+		});
 		btnSiguiente.setBounds(283, 266, 122, 23);
 		add(btnSiguiente);
 

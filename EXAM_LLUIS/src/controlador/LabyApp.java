@@ -11,8 +11,9 @@ public class LabyApp {
 		conexion=ConexionDB.getInstance("localhost","thelaby","root","tonphp");
 		conexion.connectDB();
 		
-		VistaPrincipal frame = new VistaPrincipal();
-		frame.setVisible(true);
+		ConVistaPrin Controladora= ConVistaPrin.getInstance();
+		
+		
 	}
 
 }
