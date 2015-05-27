@@ -15,9 +15,8 @@ public class Comprobacion extends JPanel {
 	private JTextField cajaId;
 	private JTextField caja1Ape;
 	private JTextField cajaMensaje;
-	/**
-	 * Create the panel.
-	 */
+	
+	//clase donde generaremos la tercera pantalla donde podremos consultar si cogiendo los datos nos funciona
 	public Comprobacion() {
 		setLayout(null);
 		setName("comprobacion");
@@ -40,6 +39,7 @@ public class Comprobacion extends JPanel {
 		add(caja1Ape);
 		caja1Ape.setColumns(10);
 		
+		//listener del boton comprobar
 		JButton btnComprobar = new JButton("COMPROBAR");
 		btnComprobar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -53,12 +53,12 @@ public class Comprobacion extends JPanel {
 				cajaMensaje.setText(mensaje);
 			}
 		});
-		btnComprobar.setBounds(10, 115, 430, 23);
+		btnComprobar.setBounds(10, 115, 415, 23);
 		add(btnComprobar);
 		
 		cajaMensaje = new JTextField();
 		cajaMensaje.setEditable(false);
-		cajaMensaje.setBounds(10, 163, 430, 20);
+		cajaMensaje.setBounds(10, 163, 415, 20);
 		add(cajaMensaje);
 		cajaMensaje.setColumns(10);
 		
